@@ -1,0 +1,18 @@
+[
+    {
+        "name": "xSites",
+        "icon": "client/src/data/sites.json",
+        "url": "",
+        "type": "file"
+    },
+    {
+        "name": "App.vue",
+        "path": "client/src/App.vue",
+        "type": "file"
+    },
+    {
+        "name": "main.json",
+        "path": "client/src/data/main.json",
+        "type": "file"
+    }
+]
