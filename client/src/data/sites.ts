@@ -19,7 +19,7 @@ export const sites: Site[] = [
         url: "http://127.0.0.1:4533/",
         icon: "navidrome",
         desc: "电脑本地搭建的音乐网站",
-        classOne: "常de 网址",
+        classOne: "常用网址",
         classTwo: "最近常用",
 
     },
