@@ -7,6 +7,11 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
+  // 更换输出目录
+  // 这里的路径是相对于 vite.config.ts 文件所在的目录
+  build: {
+    outDir: '../docs'
+  },
   plugins: [
     vue(),
     vueDevTools(),
