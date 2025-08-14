@@ -272,6 +272,38 @@ export const sites: Site[] = [
         classTwo: "运维工具"
     },
     {
+        name: "heidisql",
+        url: "https://www.heidisql.com/",
+        icon: "heidisql",
+        desc: "好用的数据库管理工具",
+        classOne: "云服务类",
+        classTwo: "运维工具"
+    },
+    {
+        name: "navicat",
+        url: "https://navicat.com.cn/download/navicat-premium",
+        icon: "navicat",
+        desc: "知名的数据库管理工具",
+        classOne: "云服务类",
+        classTwo: "运维工具"
+    },
+    {
+        name: "xshell",
+        url: "https://www.xshell.com/zh/free-for-home-school/",
+        icon: "xshell",
+        desc: "名气很大的SHH客户机",
+        classOne: "云服务类",
+        classTwo: "运维工具"
+    },
+    {
+        name: "MobaXterm",
+        url: "https://mobaxterm.mobatek.net/",
+        icon: "mobaxterm",
+        desc: "ssh客户机",
+        classOne: "云服务类",
+        classTwo: "运维工具"
+    },
+    {
         name: "v2",
         url: "https://github.com/2dust/v2rayN",
         icon: "v2",
@@ -284,104 +316,104 @@ export const sites: Site[] = [
         url: "https://geekuninstaller.com/download",
         icon: "tool",
         desc: "卸载工具",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "winrar",
         url: "https://www.win-rar.com/",
         icon: "winrar",
         desc: "解压软件",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "VMware",
         url: "https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html",
         icon: "vmware",
         desc: "虚拟机",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "WPS",
         url: "https://www.wps.cn/",
         icon: "wps",
         desc: "国产办公软件",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "文档办公"
     },
     {
         name: "snipaste",
         url: "https://zh.snipaste.com/",
         icon: "snipaste",
         desc: "好用的截图神器",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "sharex",
         url: "https://getsharex.com/",
         icon: "sharex",
         desc: "开源的截图软件",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "umi-ocr",
         url: "https://github.com/hiroi-sora/Umi-OCR/releases",
         icon: "github",
         desc: "截图、OCR工具",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "pixpin",
         url: "https://pixpinapp.com/",
         icon: "pixpin",
         desc: "截图、OCR工具（未开源）",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "motrix",
         url: "https://motrix.app/",
         icon: "motrix",
         desc: "下载器",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "PicGo",
         url: "https://github.com/Molunerfinn/PicGo/releases/",
         icon: "picgo",
         desc: "图床工具",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "实用软件"
     },
     {
         name: "obsidian",
         url: "https://obsidian.md/",
         icon: "obsidian",
         desc: "Markdown编辑器",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "文档办公"
     },
     {
         name: "notion",
         url: "https://www.notion.so/",
         icon: "notion",
         desc: "热门的笔记软件",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "文档办公"
     },
     {
         name: "语雀",
         url: "https://www.yuque.com/",
         icon: "yuque",
         desc: "出名的知识库搭建平台",
-        classOne: "工具软件",
-        classTwo: "普通工具软件"
+        classOne: "软件工具",
+        classTwo: "文档办公"
     },
     {
         name: "Desktop",
@@ -389,63 +421,41 @@ export const sites: Site[] = [
         icon: "desktop",
         desc: "Git可视化，Github出品",
 
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
+        classOne: "软件工具",
+        classTwo: "编程相关"
     },
     {
         name: "hbuilderx",
         url: "https://www.dcloud.io/hbuilderx.html",
         icon: "hbuilderx",
         desc: "uniapp捆绑编辑器",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
+        classOne: "软件工具",
+        classTwo: "编程相关"
     },
     {
         name: "VS code",
         url: "https://code.visualstudio.com/",
         icon: "vscode",
         desc: "前端必备编辑器",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
+        classOne: "软件工具",
+        classTwo: "编程相关"
     },
+
     {
-        name: "heidisql",
-        url: "https://www.heidisql.com/",
-        icon: "heidisql",
-        desc: "好用的数据库管理工具",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
+        name: "cursor",
+        url: "https://cursor.com/cn/home",
+        icon: "cursor",
+        desc: "AI代码编辑器",
+        classOne: "软件工具",
+        classTwo: "编程相关"
     },
-    {
-        name: "navicat",
-        url: "https://navicat.com.cn/download/navicat-premium",
-        icon: "navicat",
-        desc: "知名的数据库管理工具",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
-    },
-    {
-        name: "xshell",
-        url: "https://www.xshell.com/zh/free-for-home-school/",
-        icon: "xshell",
-        desc: "名气很大的SHH客户机",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
-    },
-    {
-        name: "MobaXterm",
-        url: "https://mobaxterm.mobatek.net/",
-        icon: "mobaxterm",
-        desc: "ssh客户机",
-        classOne: "工具软件",
-        classTwo: "编程工具软件"
-    },
+
     {
         name: "gkd",
         url: "https://github.com/gkd-kit/gkd",
         icon: "tool",
         desc: "跳过手机广告",
-        classOne: "工具软件",
+        classOne: "软件工具",
         classTwo: "手机软件"
     },
     {
@@ -453,7 +463,7 @@ export const sites: Site[] = [
         url: "https://github.com/AIsouler/GKD_subscription",
         icon: "tool",
         desc: "gkd的订阅规则",
-        classOne: "工具软件",
+        classOne: "软件工具",
         classTwo: "手机软件"
     },
     {
@@ -461,88 +471,88 @@ export const sites: Site[] = [
         url: "https://tool.liumingye.cn/music/#/",
         icon: "tool",
         desc: "个人工具网站",
-        classOne: "工具网站",
-        classTwo: "聚合工具"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "格式转换",
         url: "https://www.aconvert.com/cn/image/png-to-svg/",
         icon: "convert",
         desc: "PNG-SVG",
-        classOne: "工具网站",
-        classTwo: "格式转换"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "格式转换",
         url: "https://convertio.co/zh/",
         icon: "convert2",
         desc: "字体格式转换",
-        classOne: "工具网站",
-        classTwo: "格式转换"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "shields",
         url: "https://shields.io/",
         icon: "shields",
         desc: "徽章制作网站",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "simpleicons",
         url: "https://simpleicons.org/",
         icon: "img",
         desc: "配合shields制作图标徽章",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "香蕉云编",
         url: "https://www.yunedit.com/",
         icon: "xjyb",
         desc: "制作证书",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "表格生成器",
         url: "https://www.tablesgenerator.com/",
         icon: "tablesgenerator",
         desc: "快速生成表格",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "人物生成器",
         url: "https://www.fakepersongenerator.com/",
         icon: "person",
         desc: "快速生成虚拟的海外身份数据",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "CSS工具网",
         url: "https://css.bqrdh.com/safety-color",
         icon: "tool",
         desc: "解决CSS的各种需求",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "图司机",
         url: "https://www.tusij.com/color/palette",
         icon: "tool",
         desc: "配色工具",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "零代码工具箱",
         url: "https://www.lingdaima.com/",
         icon: "tool",
         desc: "拟态风CSS快速生成",
-        classOne: "工具网站",
-        classTwo: "生成器"
+        classOne: "软件工具",
+        classTwo: "工具网站"
     },
     {
         name: "Bilibili",
@@ -720,14 +730,7 @@ export const sites: Site[] = [
         classOne: "编程技术",
         classTwo: "JS生态"
     },
-    {
-        name: "cursor",
-        url: "https://cursor.com/cn/home",
-        icon: "cursor",
-        desc: "AI代码编辑器",
-        classOne: "编程技术",
-        classTwo: "其他"
-    },
+
     {
         name: "vxe-table",
         url: "https://vxetable.cn/",

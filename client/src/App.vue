@@ -104,10 +104,12 @@ const getIconUrl = (icon: string) => {
 </template>
 
 <style lang="scss" scoped>
+@use "./styles/var.scss" as *;
+
 .xSites-all {
   width: 100%;
   height: 100vh;
-  background-color: aliceblue;
+  // background-color: aliceblue;
 
   // background-color: #972121;
 
@@ -127,22 +129,23 @@ const getIconUrl = (icon: string) => {
       max-width: 90%;
       height: 60px;
       background-color: #ffffff;
-      box-shadow: 2px 2px 4px #dedede,
-        -2px -2px 4px #f4f2f2;
+      // box-shadow: 2px 2px 4px $shadow_2_1,
+      //   -2px -2px 4px $shadow_2_2;
       border-radius: 10px;
       margin: 0 auto;
-      // overflow-x: scroll;
+
+      border: #7eade0 dashed 2px;
+
 
       .top-classOneMenu-item {
         margin: 0 15px;
         padding: 5px 10px;
         font-size: 14px;
-        color: #6c5f5f;
         font-family: '优设标题黑', sans-serif;
         cursor: pointer;
         border-radius: 4px;
-        box-shadow: 1px 1px 2px #dedede,
-          -1px -1px 2px #f4f2f2;
+        box-shadow: 1px 1px 2px $shadow_1_1,
+          -1px -1px 2px $shadow_1_2;
 
         transition: background-color 0.3s, color 0.3s;
 
@@ -179,17 +182,32 @@ const getIconUrl = (icon: string) => {
       border-radius: 8px;
 
       .classTwoMenu-item {
-        width: 120px;
-        height: 100%;
-        border-right: 1px solid #efe9e9;
-        font-size: 14px;
+        min-width: 60px;
+        height: 80%;
+        margin: 0 10px;
+        padding: 0 10px;
+        background-color: white;
+
+
+        font-size: 13px;
+        font-family: '优设标题黑', sans-serif;
+        color: #3e3a3a;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        border-bottom: #ba6b40 solid 4px;
+        // border-left: #ba6b40 solid 2px;
+
+
+        // box-shadow: 1px 1px 2px $shadow_1_1,
+        //   -1px -1px 2px $shadow_1_2;
+
 
         &:hover {
-          background-color: #e0e0e0;
+          // background-color: #e0e0e0;
+          opacity: 0.7;
+          color: #2d7ba2;
         }
       }
     }
@@ -209,6 +227,8 @@ const getIconUrl = (icon: string) => {
       flex-direction: row;
       justify-content: flex-start;
       flex-wrap: wrap;
+
+      background-color: white;
 
 
 
