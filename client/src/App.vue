@@ -73,14 +73,15 @@ const getIconUrl = (icon: string) => {
       <!-- <div class="top-search">search</div> -->
       <!-- 大类选项 -->
       <div class="top-classOneMenu">
-        <div class="top-classOneMenu-item" v-for="it in classOneArr"
+        <div class="top-classOneMenu-item" :class="{ active: nowClassOne === it }" v-for="it in classOneArr"
           @click="nowClassOne = it; getClassTwoArr(); getShowedSites()">{{ it }}</div>
       </div>
 
     </div>
     <div class="main">
       <div class="classTwoMenu">
-        <div class="classTwoMenu-item" v-for="it in classTwoArr" @click="nowClassTwo = it; getShowedSites()">{{ it }}
+        <div class="classTwoMenu-item" :class="{ active: nowClassTwo === it }" v-for="it in classTwoArr"
+          @click="nowClassTwo = it; getShowedSites()">{{ it }}
         </div>
       </div>
       <div class="content">
@@ -154,6 +155,15 @@ const getIconUrl = (icon: string) => {
           color: #ffffff;
         }
       }
+
+      // 当前选中的大类样式
+      .top-classOneMenu-item.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+
+
     }
   }
 
@@ -168,7 +178,7 @@ const getIconUrl = (icon: string) => {
     align-items: flex-start;
     font-size: 24px;
     color: #333333;
-    // background-color: #ffffff;
+
 
 
     .classTwoMenu {
@@ -185,31 +195,37 @@ const getIconUrl = (icon: string) => {
         min-width: 60px;
         height: 80%;
         margin: 0 10px;
-        padding: 0 10px;
+        padding-bottom: 4px;
         background-color: white;
-
-
         font-size: 13px;
         font-family: '优设标题黑', sans-serif;
         color: #3e3a3a;
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
+        align-items: end;
+
         cursor: pointer;
-        border-bottom: #ba6b40 solid 4px;
-        // border-left: #ba6b40 solid 2px;
+
+        border-bottom: #7fa7e0 solid 3px;
 
 
-        // box-shadow: 1px 1px 2px $shadow_1_1,
-        //   -1px -1px 2px $shadow_1_2;
 
 
         &:hover {
-          // background-color: #e0e0e0;
-          opacity: 0.7;
+
+
           color: #2d7ba2;
         }
       }
+
+      .classTwoMenu-item.active {
+
+        color: #2d7ba2;
+        border-bottom: #7fa7e0 dashed 3px;
+      }
+
+
     }
 
     .content {
@@ -218,9 +234,9 @@ const getIconUrl = (icon: string) => {
       // height: calc(100% - 40px);
       min-height: 50%;
       margin-top: 10px;
-      // background-color: #fafafa;
+      border: #7eade0 dashed 2px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
       padding: 20px;
       box-sizing: border-box;
       display: flex;
