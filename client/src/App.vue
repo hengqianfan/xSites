@@ -20,6 +20,8 @@ const nowClassOne = ref<string>('');
 nowClassOne.value = classOneArr.value[0] || '';
 // 定义小类数组（在当前大类下的）
 const classTwoArr = ref<string[]>([]);
+// 当前选中的小类
+const nowClassTwo = ref<string>('');
 // 获取小类选项数组 
 const getClassTwoArr = () => {
   // 使用filter方法筛选出当前大类对应的小类
@@ -30,19 +32,26 @@ const getClassTwoArr = () => {
   sres = Array.from(new Set(sres));
   // 将结果赋值给classTwoArr
   classTwoArr.value = sres;
+  // 更新当前选中的小类为第一个小类
+  nowClassTwo.value = classTwoArr.value[0] || '';
 }
 getClassTwoArr();
-// 当前选中的小类
-const nowClassTwo = ref<string>('');
-nowClassTwo.value = classTwoArr.value[0] || '';
+
+
 
 // 定义展示的网站数组
 const showedSites = ref<any[]>([]);
 // 获取展示的网站数组
 const getShowedSites = () => {
+
+  console.log(nowClassOne.value, nowClassTwo.value);
+
+
   let res = data.filter(item => item.classOne === nowClassOne.value);
   let ress = res.filter(item => item.classTwo === nowClassTwo.value);
   showedSites.value = ress;
+  console.log(showedSites.value);
+
 }
 getShowedSites();
 
@@ -64,15 +73,15 @@ const getIconUrl = (icon: string) => {
       <!-- <div class="top-search">search</div> -->
       <!-- 大类选项 -->
       <div class="top-classOneMenu">
-        <div class="top-classOneMenu-item" v-for="it in classOneArr">{{ it }}</div>
-
+        <div class="top-classOneMenu-item" v-for="it in classOneArr"
+          @click="nowClassOne = it; getClassTwoArr(); getShowedSites()">{{ it }}</div>
       </div>
-
 
     </div>
     <div class="main">
       <div class="classTwoMenu">
-        <div class="classTwoMenu-item" v-for="it in classTwoArr">{{ it }}</div>
+        <div class="classTwoMenu-item" v-for="it in classTwoArr" @click="nowClassTwo = it; getShowedSites()">{{ it }}
+        </div>
       </div>
       <div class="content">
 
@@ -121,7 +130,6 @@ const getIconUrl = (icon: string) => {
       box-shadow: 2px 2px 4px #dedede,
         -2px -2px 4px #f4f2f2;
       border-radius: 10px;
-
       margin: 0 auto;
       // overflow-x: scroll;
 
@@ -129,11 +137,13 @@ const getIconUrl = (icon: string) => {
         margin: 0 15px;
         padding: 5px 10px;
         font-size: 14px;
+        color: #6c5f5f;
+        font-family: '优设标题黑', sans-serif;
         cursor: pointer;
         border-radius: 4px;
         box-shadow: 1px 1px 2px #dedede,
           -1px -1px 2px #f4f2f2;
-        color: #898282;
+
         transition: background-color 0.3s, color 0.3s;
 
         &:hover {
@@ -155,7 +165,7 @@ const getIconUrl = (icon: string) => {
     align-items: flex-start;
     font-size: 24px;
     color: #333333;
-    background-color: #ffffff;
+    // background-color: #ffffff;
 
 
     .classTwoMenu {
@@ -165,19 +175,14 @@ const getIconUrl = (icon: string) => {
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      // background-color: #825151;
+
       border-radius: 8px;
-      // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       .classTwoMenu-item {
-        width: 100px;
+        width: 120px;
         height: 100%;
-        border: 1px solid #ccc;
-        // border-radius: 10px 10px 0 0;
-        // margin: 10px;
-        background-color: #f5f5f5;
-        font-size: 16px;
-
+        border-right: 1px solid #efe9e9;
+        font-size: 14px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -192,9 +197,10 @@ const getIconUrl = (icon: string) => {
     .content {
       width: 100%;
       // 减去上面的高度
-      height: calc(100% - 40px);
+      // height: calc(100% - 40px);
+      min-height: 50%;
       margin-top: 10px;
-      background-color: #fafafa;
+      // background-color: #fafafa;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 20px;
@@ -207,7 +213,7 @@ const getIconUrl = (icon: string) => {
 
 
       .siteCard {
-        margin: 10px;
+        margin: 15px;
         width: 225px;
         height: 100px;
         border: 2px white dotted;
