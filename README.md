@@ -15,3 +15,10 @@
 ### 第一版
 
 ![alt](https://raw.githubusercontent.com/hengqianfan/xSites/refs/heads/main/client/public/history/version1.png)
+
+
+### 第二版
+
+加入简易的浏览后台
+
+-引入 UUID 保证每条数据具有唯一标识符

@@ -1,4 +1,5 @@
 interface Site {
+
     name: string;
     url: string | URL;
     desc?: string;
