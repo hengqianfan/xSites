@@ -4,7 +4,7 @@ interface Site {
     url: string | URL;
     desc?: string;
     icon?: string;
-    classOne: string;
+    classOne: '常用网址' | '云服务类' | '软件工具' | '社区资讯' | '编程技术' | '人工智能' | '资源网站' | '游戏相关' | '博客网站' | '公众服务';
     classTwo?: string;
     tags?: string[];
     priority?: number;
@@ -1539,5 +1539,22 @@ export const sites: Site[] = [
         desc: "国家的人文关怀",
         classOne: "公众服务",
         classTwo: "服务"
+    },
+    {
+        name: "谷歌浏览器",
+        url: "https://www.google.com/intl/zh-CN/chrome/",
+        icon: "chrome",
+        desc: "谷歌浏览器的下载地址",
+        classOne: "软件工具",
+        classTwo: "实用软件"
+    },
+    {
+        name: "xSite",
+        url: "http://localhost:9001/",
+        icon: "web",
+        desc: "网址合集导航项目",
+        classOne: "常用网址",
+        classTwo: "本地项目调试"
     }
+
 ]
