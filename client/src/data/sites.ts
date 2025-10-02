@@ -1,19 +1,4 @@
-interface Site {
-
-    name: string;
-    url: string | URL;
-    desc?: string;
-    icon?: string;
-    classOne: '常用网址' | '云服务类' | '软件工具' | '社区资讯' | '编程技术' | '人工智能' | '资源网站' | '游戏相关' | '博客网站' | '公众服务';
-    classTwo?: string;
-    tags?: string[];
-    priority?: number;
-    pin?: boolean;
-    star?: boolean;
-
-}
-
-// 扁平化处理后的网址导航数据
+import type { Site } from "@/types/site";
 export const sites: Site[] = [
     {
         name: "Navidrome",
@@ -21,8 +6,7 @@ export const sites: Site[] = [
         icon: "navidrome",
         desc: "电脑本地搭建的音乐网站",
         classOne: "常用网址",
-        classTwo: "最近常用",
-
+        classTwo: "最近常用"
     },
     {
         name: "bilibili",
@@ -421,7 +405,6 @@ export const sites: Site[] = [
         url: "https://desktop.github.com/",
         icon: "desktop",
         desc: "Git可视化，Github出品",
-
         classOne: "软件工具",
         classTwo: "编程相关"
     },
@@ -441,7 +424,6 @@ export const sites: Site[] = [
         classOne: "软件工具",
         classTwo: "编程相关"
     },
-
     {
         name: "cursor",
         url: "https://cursor.com/cn/home",
@@ -450,7 +432,6 @@ export const sites: Site[] = [
         classOne: "软件工具",
         classTwo: "编程相关"
     },
-
     {
         name: "gkd",
         url: "https://github.com/gkd-kit/gkd",
@@ -731,7 +712,6 @@ export const sites: Site[] = [
         classOne: "编程技术",
         classTwo: "JS生态"
     },
-
     {
         name: "vxe-table",
         url: "https://vxetable.cn/",
@@ -1556,5 +1536,6 @@ export const sites: Site[] = [
         classOne: "常用网址",
         classTwo: "本地项目调试"
     }
+
 
 ]

@@ -2,9 +2,9 @@
     <div class="admin-all">
         <div class="admin-nav">
 
-            <div class="admin-nav-item">搜索</div>
-            <div class="admin-nav-item">新增</div>
-            <div class="admin-nav-item" @click="downloadJs">下载</div>
+            <div class="admin-nav-item">搜索网址</div>
+            <div class="admin-nav-item" @click="addSite">新增网址</div>
+            <div class="admin-nav-item" @click="downloadJs">下载数据</div>
 
 
         </div>
@@ -56,6 +56,7 @@
             </div>
         </div>
 
+        <!-- 编辑界面 -->
         <div class="admin-edit" v-if="isOpenEditPage">
             <div class="admin-edit-site">
                 <!-- <div class="admin-edit-site-option">
@@ -122,7 +123,9 @@
                     <input class="admin-edit-site-option-value" type="text" v-model="siteEdited.tags"
                         placeholder="网站的标签" />
                 </div>
-                <button @click="editSite(siteEdited)">edit </button>
+                <button @click="editSite(siteEdited)">提交 </button>
+                <button @click="isOpenEditPage = false">取消 </button>
+
             </div>
         </div>
     </div>
@@ -133,6 +136,7 @@ import { sites } from '@/data/sites.ts';
 import { ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import Index from '../home/index.vue';
+import type { Site } from "@/types/site";
 // 定义一个响应式数据来存储网站数据
 const data = ref(sites);
 
@@ -146,18 +150,7 @@ const downloadJs = () => {
     // 去掉双引号
     res = res.replace(/"([^"]+)":/g, '$1:');
 
-    const blob = new Blob([`interface Site {
-    name: string;
-    url: string | URL;
-    desc?: string;
-    icon?: string;
-    classOne: string;
-    classTwo?: string;
-    tags?: string[];
-    priority?: number;
-    pin?: boolean;
-    star?: boolean;
-    }  
+    const blob = new Blob([`import type { Site } from "@/types/site";
 export const sites: Site[] = ${res}`], { type: 'application/javascript' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -170,24 +163,16 @@ export const sites: Site[] = ${res}`], { type: 'application/javascript' });
 }
 
 // 定义一个响应式数据来存储当前编辑的网站
-const siteEdited = ref({
-
+const siteEdited = ref<Site>({
     name: '',
     url: '',
-    desc: '',
-    icon: '',
-    classOne: '',
-    classTwo: '',
-    tags: [] as string[],
-    priority: 0,
-    pin: false,
-    star: false,
-    index: 0
+    classOne: '常用网址',
+
 });
 // 定义一个响应式数据来控制编辑页面的显示
 const isOpenEditPage = ref(false);
 
-const openEditSitePage = (site: any, index: number) => {
+const openEditSitePage = (site: Site, index: number) => {
     // 将选中的网站数据赋值给 siteEdited
     siteEdited.value = { ...site };
     // 保存索引值
@@ -195,89 +180,57 @@ const openEditSitePage = (site: any, index: number) => {
     // 打开编辑页面
     isOpenEditPage.value = true;
 
-    // // (💥修复没有 ID 的数据)
-    // // 如果 siteEdited 没有 id，则生成一个新的 id
-    // // 确保每个网站都有一个唯一的 ID
-    // if (!siteEdited.value.id) {
-    //     siteEdited.value.id = uuidv4()
-    // }
-
-
 }
-// 此函数仅为了快速修正第一版的 sites.ts 的数据中缺失 ID 属性的问题
-// 将此函数代替下面的 editSite 函数执行， 然后下载的新的 sites.ts 文件
-// 将数据替换后，再继续后续课程
-// const editSite_only_update_sitesTs = (site: any) => {
-//     let res = data.value.map(s => {
-//         if (s.id) {
-//             console.log(s, '存在');
-//         } else {
-//             console.log(s, '不存在');
-//             s.id = uuidv4();
-//         }
-//     });
-// }
 
 
 const editSite = (site: any) => {
     // 获取索引值
     let index = site.index;
-    // 删除索引值
-    // 也可以保留索引，不过关于项目中TS类型的定义就需要修改 
-    // 上面也不用获取索引值，直接用
-    // 还有 downloadJs() 的输出语句也要修改
-    delete site.index;
-    // 根据索引，更新网站数据
-    data.value[index] = { ...site };
+    if (index === data.value.length) {
+        // 如果是新增网站，则添加一个新的网站
+        delete site.index;
+        data.value.push({ ...site, });
+        // 关闭编辑页面
+        isOpenEditPage.value = false;
+        // 重新生成并下载 sites.ts 文件
+        downloadJs()
+        return;
+    } else {
+        // 如果是编辑网站，则更新现有的网站
+        // 删除索引值
+        // 也可以保留索引，不过关于项目中TS类型的定义就需要修改 
+        // 上面也不用获取索引值，直接用
+        // 还有 downloadJs() 的输出语句也要修改
+        delete site.index;
+        // 根据索引，更新网站数据
+        data.value[index] = { ...site };
 
 
-
-    // 关闭编辑页面
-    isOpenEditPage.value = false;
-    // 重新生成并下载 sites.ts 文件
-    downloadJs()
-
-
-
-    // console.log(res);
-
-
-
-    // if (site.name === '') {
-    //     alert('网站名称不能为空');
-    //     return;
-    // }
-    // if (site.url === '') {
-    //     alert('网站 URL 不能为空');
-    //     return;
-    // }
-
-    // isOpenEditPage.value = false; // 关闭编辑页面
+        // 关闭编辑页面
+        isOpenEditPage.value = false;
+        // 重新生成并下载 sites.ts 文件
+        downloadJs()
+    }
 
 
 
 }
 
 
-// // 找到要编辑的网站在 data 中的索引
-// const index = data.value.findIndex(site => site.id === siteEdited.value.id);
-// if (index !== -1) {
-//     // 更新网站数据
-//     data.value[index] = { ...siteEdited.value };
-//     // 关闭编辑页面
-//     isOpenEditPage.value = false;
-// } else {
-//     alert('网站未找到');
-// }
+const addSite = () => {
+    openEditSitePage({ name: '新增网址', url: 'www', classOne: '常用网址' }, data.value.length);
 
+}
 
 </script>
 
 <style lang="scss" scoped>
+@use '../../styles/var.scss' as *;
+
 .admin-all {
     width: 100%;
     height: 100vh;
-    background-color: wheat;
+    // background-color: wheat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -286,10 +239,13 @@ const editSite = (site: any) => {
     .admin-nav {
         width: 70%;
         height: 60px;
-        background-color: #f0f0f0;
+        // background-color: #f0f0f0;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: #7eade0 dashed 2px;
+        border-radius: 10px;
+
 
 
 
@@ -298,13 +254,24 @@ const editSite = (site: any) => {
             padding: 10px 20px;
             background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 2px $shadow_1_1,
+                -1px -1px 2px $shadow_1_2;
             cursor: pointer;
+            margin: 0 15px;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-family: '优设标题黑', sans-serif;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 1px 1px 2px $shadow_1_1,
+                -1px -1px 2px $shadow_1_2;
+            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
             transition: background-color 0.3s, box-shadow 0.3s;
 
             &:hover {
                 background-color: #e0e0e0;
-                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
             }
         }
 

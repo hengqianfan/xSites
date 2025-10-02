@@ -1,0 +1,10 @@
+@use './reset.scss';
+
+@use './font.scss';
+
+@use './app.scss';
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -72,9 +72,6 @@ const getIconUrl = (icon: string) => {
     <div class="xSites-all">
 
 
-
-
-
         <div class="top">
             <!-- <div class="top-search">search</div> -->
             <!-- 大类选项 -->
@@ -134,8 +131,7 @@ const getIconUrl = (icon: string) => {
             max-width: 90%;
             height: 60px;
             background-color: #ffffff;
-            // box-shadow: 2px 2px 4px $shadow_2_1,
-            //   -2px -2px 4px $shadow_2_2;
+
             border-radius: 10px;
             margin: 0 auto;
 
